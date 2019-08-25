@@ -1,0 +1,1 @@
+<figure><img src="{{asset($post->photos->first()->url)}}" alt="" class="img-responsive">
