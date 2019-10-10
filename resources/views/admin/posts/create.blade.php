@@ -1,8 +1,8 @@
 <div class="modal fade" id="myModal">
-    <form method="POST" action="{{route('admin.posts.store', '#create')}}">
+    <form method="POST" action="{{route('admin.posts.store', '#create')}}"> 
     {{csrf_field()}}
           <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content"> 
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>

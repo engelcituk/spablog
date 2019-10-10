@@ -29,6 +29,10 @@ class PagesController extends Controller
         }
         $posts = $consulta->paginate();
        
+        //por si son llamados ajax retorno ajax
+        if( request()->wantsJson()){
+            return $posts;
+        }
 
         return view('pages.home', compact('posts'));
     }
@@ -43,7 +47,11 @@ class PagesController extends Controller
             'posts' => Post::latest('published_at')->take(5)->get(),
             'archive'=> $archive 
 
-            ]
+            ] 
         );
+    }
+    public function spa(){
+        
+        return view('pages.spa');
     }
 }

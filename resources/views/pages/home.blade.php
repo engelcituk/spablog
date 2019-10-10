@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="posts container">
+<section class="posts container"> 
 	@if (isset($title))
 		<h3>{{$title}}</h3>
 	@endif

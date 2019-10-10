@@ -40,6 +40,7 @@ class UsersTableSeader extends Seeder
 
         $viewPermissionPermission = Permission::create(['name'=>'View permissions','display_name'=>'Ver permisos']);
         $updatePermissionPermission = Permission::create(['name'=>'Update permissions','display_name'=>'Actualizar permisos']);
+        
 
 
         $admin = new User;

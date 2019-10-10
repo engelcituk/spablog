@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'PagesController@home')->name('pages.home'); 
+Route::get('/', 'PagesController@spa')->name('pages.spa');
+
+/* Route::get('/', 'PagesController@home')->name('pages.home'); */
 Route::get('/archive', 'PagesController@archive')->name('pages.archive'); 
 
 Route::get('blog/{post}', 'PostsController@show')->name('posts.show'); 
@@ -26,7 +28,7 @@ Route::group([
 function(){
     Route::get('/', 'AdminController@index')->name('dashboard');//el slash / es para indicar que esta en la raiz
 
-    Route::resource('posts', 'PostsController',['except'=>'show', 'as'=>'admin']);
+    Route::resource('posts', 'PostsController',['except'=>'show', 'as'=>'admin']); //as es para agregar el prefijo admin al nombre de las rutas
     Route::resource('users', 'UsersController',['as'=>'admin']);
     Route::resource('roles', 'RolesController',['except'=>'show', 'as'=>'admin']);
     Route::resource('permissions', 'PermissionsController',['only'=>['index','edit','update'], 'as'=>'admin']);
@@ -34,7 +36,7 @@ function(){
     //middlewares para los roles y  permisos
     Route::middleware('role:Admin')
         ->put('users/{user}/roles', 'UsersRolesController@update')
-        ->name('admin.users.roles.update');
+        ->name('admin.users.roles.update'); 
 
     Route::middleware('role:Admin')
         ->put('users/{user}/permissions', 'UsersPermissionsController@update')

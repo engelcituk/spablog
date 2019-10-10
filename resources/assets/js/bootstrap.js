@@ -15,7 +15,10 @@ window.Vue = require('vue');
 window.axios = require('axios');
 
 window.axios.defaults.headers.common = {
-    'X-Requested-With': 'XMLHttpRequest'
+    //'X-CSRF-TOKEN': window.App.csrfToken,
+    'X-Requested-With': 'XMLHttpRequest',
+    'Content-type': 'application/json',
+    'Accept': 'application/json'
 };
 
 /**
